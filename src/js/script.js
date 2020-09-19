@@ -21,14 +21,21 @@ let mobileMenu = document.querySelector('.nav__mobile');
 burgetBtn.addEventListener('click', menuToggler);
 
 function menuToggler() {
-    burgetBtn.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
+    if(checkWidth()) {
+        burgetBtn.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+    }
+}
+
+function checkWidth() {
+    let isMobile = document.documentElement.clientWidth <= 770 ? true : false;
+    return isMobile;
 }
 
 // FIXED HEADER && ACTIVATING MENU BTNS
-window.addEventListener('scroll', checkScroll);
+// window.addEventListener('scroll', checkScroll);
 let header = document.querySelector('header');
-    scroll = 0;
+let scroll = 0;
 
 function checkScroll() {
     scroll = window.scrollY;
@@ -37,7 +44,9 @@ function checkScroll() {
     } else {
         header.classList.remove('fixed');
     }
+    window.requestAnimationFrame(checkScroll);
 };
+window.requestAnimationFrame(checkScroll);
 
 function fixHeader() {
     header.classList.add('fixed');
@@ -46,18 +55,20 @@ fixHeader();
 
 // SCROLL TO
 window.addEventListener('click', scrollThis);
-function scrollThis() {
-    let target = event.target.dataset.scroll;
-    if(target) {
-        let block = document.getElementById(`${target}`);
+function scrollThis(event) {
+    let btn = event.target.dataset.scroll;
+    if(btn) {
+        let block = document.getElementById(`${btn}`);
         let cord = block.getBoundingClientRect().top + pageYOffset;
-
-        menuToggler();
-      
+    
         window.scrollTo({
-            top: cord,
+            top: cord - header.clientHeight,
             behavior: "smooth"
         })
+
+        if(!event.target.classList.contains('intro__scroll')) {
+            menuToggler();
+        };
     }
 }
 
@@ -67,16 +78,33 @@ window.addEventListener('click', closeModal);
 
 let modal = document.querySelector('.modal__container');
 
-function openModal() {
+function openModal(event) {
     let target = event.target.dataset.click;
     if(target) {
         modal.classList.add('modal__active');
     }
 }
 
-function closeModal() {
-    let target = event.target;
-    if(target.closest('.close__btn') || target.className === 'modal') {
+function closeModal(event) {
+    let btn = event.target;
+    if(btn.className === 'close__btn' || btn.className === 'modal') {
         modal.classList.remove('modal__active');
     }
+}
+
+// ANIMATION ON VISIBLE ELEMENT
+let toShow = [...document.querySelectorAll('.hided-elements')];
+window.requestAnimationFrame(checkElements);
+
+function checkElements(event) {
+    toShow.forEach((el) =>  {
+        let scrolled = pageYOffset + document.documentElement.clientHeight;
+        let elCord = el.getBoundingClientRect().top + el.getBoundingClientRect().top / 2 + pageYOffset;
+        if(scrolled >= elCord) {
+            el.classList.add('show');
+        } else {
+            el.classList.remove('show');
+        };
+    });
+    window.requestAnimationFrame(checkElements);
 }
