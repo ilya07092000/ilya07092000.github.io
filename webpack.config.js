@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 const PATHS = {
     src: path.resolve(__dirname, 'src'),
@@ -57,7 +58,11 @@ module.exports = {
                     {
                         loader: 'postcss-loader',
                         options: {
-                            plugins: [require('autoprefixer')],
+                            plugins: [
+                                autoprefixer({
+                                    browsers:['ie >= 11', 'last 2 version']
+                                })
+                            ],
                         },
                     },
                     'sass-loader'

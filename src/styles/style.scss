@@ -57,6 +57,7 @@ header {
 .header__inner {
 	display: -webkit-box;
 	display: flex;
+	flex-direction: row;
 	-webkit-box-pack: justify;
 	justify-content: space-between;
 	-webkit-box-align: center;
@@ -184,6 +185,7 @@ header {
 	height: 100vh;
 	min-height: 570px;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	position: relative;
@@ -336,6 +338,7 @@ header {
 	}
 	&__content {
 		display: flex;
+		flex-direction: row;
 		padding: 45px 0 75px;
 		flex-wrap: wrap;
 	}
@@ -418,6 +421,7 @@ header {
 	z-index: 999;
 	&__inner {
 		display: flex;
+		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
 		flex-wrap: wrap;
@@ -425,6 +429,7 @@ header {
 	&__contact {
 		text-align: center;
 		display: flex;
+		flex-direction: row;
 		justify-content: center;
 		align-items: center;
 		width: 50%;
@@ -503,6 +508,7 @@ header {
 	overflow: auto;
 	display: -webkit-box;
 	display: flex;
+	flex-direction: column;
 }
 
 .modal__dialog {
