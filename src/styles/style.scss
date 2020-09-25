@@ -273,7 +273,7 @@ header {
 }
 
 .hiden-elements.show .to-show-right {
-	animation: 2s linear inright;
+	animation: 2s ease-out inright;
 	opacity: 1;
 }
 
@@ -360,6 +360,25 @@ header {
 			font-size: 15px;
 			font-weight: 300;
 			line-height: 1.8;
+		}
+		&__socials__list {
+			margin-top: 10px;
+			list-style-type: none;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			&__item {
+				margin-right: 15px;
+				transition: transform .1s linear;
+				&:hover {
+					transform: scale(1.2);
+				}
+			}
+			&__item__icon {
+				width: 100%;
+				max-width: 45px;
+				height: 45px;
+			}
 		}
 	}
 }
@@ -552,7 +571,7 @@ header {
 		text-align: right;
 	}
 	&:hover {
-		transform: scale(1.1);
+		transform: scale(1.2);
 	}
 }
 .close__btn:focus {

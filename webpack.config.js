@@ -70,7 +70,7 @@ module.exports = {
             },
             { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
             {
-                test: /\.(png|svg|jpe?g|gif)$/,
+                test: /\.(png|svg|jpe?g|gif|ico)$/,
                 use: [
                     {
                         loader: 'file-loader',
