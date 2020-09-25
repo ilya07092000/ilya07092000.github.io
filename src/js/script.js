@@ -93,7 +93,7 @@ function closeModal(event) {
 }
 
 // ANIMATION ON VISIBLE ELEMENT
-let toShow = [...document.querySelectorAll('.hided-elements')];
+let toShow = [...document.querySelectorAll('.hiden-elements')];
 window.requestAnimationFrame(checkElements);
 
 function checkElements(event) {
