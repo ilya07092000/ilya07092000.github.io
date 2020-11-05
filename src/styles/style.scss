@@ -420,6 +420,12 @@ header {
 		text-align: center;
 		padding: 3px 0 22px;
 		background-color: rgba(36, 36, 36, 0.8);
+		&__list {
+			display: flex;
+			justify-content: center;
+			list-style-type: none;
+			align-items: center;
+		}
 		& a {
 			display: inline-block;
 			color: #58beff;
@@ -428,6 +434,21 @@ header {
 		& a:hover {
 			color: #b6cdf8;
 		}
+	}
+}
+
+.works__link__icon {
+	width: 30px;
+	height: 30px;
+}
+
+.works__list__item {
+	transition: transform .1s linear;
+	&:hover {
+		transform: scale(1.2);
+	}
+	&:not(:last-child) {
+		margin-right: 20px;
 	}
 }
 

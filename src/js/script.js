@@ -1,6 +1,37 @@
 import './../styles/style.scss';
 import './../styles/animation.scss';
+import { works } from './data.js'
 import Swiper from 'swiper';
+
+// ADD WORKS
+let swiperContainer = document.querySelector('.swiper-wrapper');
+for(let i = works.length - 1; i >= 0; i--) {
+    let work = `
+        <div class="swiper-slide">
+            <div class="works__item">
+                <div class="works__icon">
+                    <img src="img/${works[i].img}" class="works__img" alt="work image">
+                </div>
+                <div class="works__footer">
+                    <p>${works[i].title}</p>
+                    <ul class="works__footer__list">
+                        <li class="works__list__item">
+                            <a rel="noopener" class="works__link" href="${works[i].siteLink}" target="_blank">
+                                <img src="./img/link-solid.svg" class="works__link__icon" alt="Link">
+                            </a>
+                        </li>
+                        <li class="works__list__item">
+                            <a rel="noopener" class="works__link" href="${works[i].ghLink}" target="_blank">
+                                <img src="./img/github-brands-white.svg" class="works__link__icon" alt="GitHub">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    `
+    swiperContainer.insertAdjacentHTML('afterbegin', work)
+}
 
 var swiper = new Swiper('.swiper-container', {
     spaceBetween: 30,
@@ -108,3 +139,4 @@ function checkElements(event) {
     });
     window.requestAnimationFrame(checkElements);
 }
+
