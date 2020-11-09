@@ -18,6 +18,12 @@ export let works = [
         ghLink: 'https://github.com/ilya07092000/currency-converter/tree/master'
     },
     {
+        title: 'Hangman (JS)',
+        img: 'hangman.jpg',
+        siteLink: 'https://ilya07092000.github.io/hangman/',
+        ghLink: 'https://github.com/ilya07092000/hangman'
+    },
+    {
         title: 'Weather app (JS)',
         img: 'weather.jpg',
         siteLink: 'https://ilya07092000.github.io/weather/',
